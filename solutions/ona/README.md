@@ -207,20 +207,20 @@ From the Overview page, you can start analyzing the network graph created from t
 
 Each node is a person. If a node interacts with another node, then they become a connection.
 An interaction can be either of the following:
--  One email
--  One meeting of 5 or less participants
--  Eight chat messages
+-  One email with 5 or less recipients
+-  One meeting of 5 or less attendees
+-  Eight chat messages (each with 5 or less recipients)
 
 This blend of interactions is informed by investigations from Microsoft Research (MSR) using statistical insights from US-based Microsoft employees.
 The two flags available to classify the nodes are the following and can be configured using parameters:
 -  Bridge flag: Top 15 percentile bridging index
--  Centrality flag: Top 15 percentile degree index 
+-  Degree flag: Top 15 percentile degree index 
 
 **Node Analysis Page**
 The Node Analysis page provides additional drill-down information of the interactions in the organization and insights on how people prefer to communicate. 
 
 **Influence Analysis Page**
-Influence – Explore influential connections: Measures the influence of nodes as being well-connected to others. A high score identifies that the node’s perspective will cascade to others efficiently. How to engage:
+Influence – Explore influential connections: Measures the influence of nodes as being well-connected to others. This is based on the PageRank of the graph. A high score identifies that the node’s perspective will cascade to others efficiently. How to engage:
 - Identify influencers
 - Explore the profile of the influencers: Title, Department, Country
 - Compare period vs period to analyze consistency
@@ -231,7 +231,8 @@ Network Size and Breadth – Empower inclusive networks: Rank the nodes based on
 - Compare period vs period to analyze consistency
 
 **Bridging Analysis Page**
-Bridging – Evaluate information flow: Capture the probability to be on the information flow between two nodes. Helps to identify potential gatekeepers, change agents, or controllers, and to remove bottlenecks.
+Bridging – Evaluate information flow: Measures the connectivity of nodes to detected graph communities. First, graph communities are discovered using LPA (label propagation algorithm). Then, we count how many communities a node is connected to and normalize by the total number of communities. A node connected to no communities will be 0. A node connected to all communities with be 1.
+Helps to identify potential gatekeepers, change agents, or controllers, and to remove bottlenecks.
 - Identify key bridges and their departments
 - Analyze the correlation of bridging and influence: 
     - High bridging and high influence may imply a leader
